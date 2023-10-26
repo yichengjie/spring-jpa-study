@@ -1,2 +1,3 @@
 1. JpaRepositoriesAutoConfiguration
-2. 
+2. JpaRepositoryFactoryBean
+3. JpaRepositoryFactory
