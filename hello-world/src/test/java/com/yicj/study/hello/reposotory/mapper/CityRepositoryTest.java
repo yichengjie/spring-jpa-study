@@ -25,7 +25,10 @@ class CityRepositoryTest {
 
     @Test
     void findByNameAndStateAllIgnoringCase() {
-
+        String name = "BJS" ;
+        String status = "UP" ;
+        City city = cityRepository.findByNameAndStateAllIgnoringCase(name, status);
+        log.info("city : {}", city);
     }
 
     @Test
