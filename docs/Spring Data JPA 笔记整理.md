@@ -1,9 +1,19 @@
+### Spring JPA 配置
+1. 配置类JpaRepositoriesAutoConfiguration使用@Import导入JpaRepositoriesImportSelector
+2. JpaRepositoriesImportSelector实现ImportSelector接口，导入JpaRepositoriesRegistrar
+3. JpaRepositoriesRegistrar实现ImportBeanDefinitionRegistrar接口，通过registerBeanDefinitions注册
+4. 
+### 核心API
 1. JpaRepositoriesAutoConfiguration
-2. JpaRepositoryFactoryBean
-3. JpaRepositoryFactory
+2. JpaRepositoriesImportSelector#selectImports
+3. JpaRepositoriesRegistrar -> AbstractRepositoryConfigurationSourceSupport#registerBeanDefinitions
 4. JpaRepositoryConfigExtension
-5. SimpleJpaRepository
-6. PartTreeJpaQuery
+5. RepositoryConfigurationDelegate#registerRepositoriesIn
+6. RepositoryBeanDefinitionBuilder#build
+7. JpaRepositoryFactoryBean -> RepositoryFactoryBeanSupport#afterPropertiesSet
+8. JpaRepositoryFactory -> RepositoryFactorySupport#getRepository
+9. SimpleJpaRepository
+10. PartTreeJpaQuery
 ### 动态代理
 1. JdkDynamicAopProxy
 2. ReflectiveMethodInvocation
