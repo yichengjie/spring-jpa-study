@@ -2,6 +2,16 @@
 2. JpaRepositoryFactoryBean
 3. JpaRepositoryFactory
 4. JpaRepositoryConfigExtension
+5. SimpleJpaRepository
+6. PartTreeJpaQuery
 ### 动态代理
 1. JdkDynamicAopProxy
 2. ReflectiveMethodInvocation
+### Advisors
+1. ExposeInvocationInterceptor
+2. CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor
+3. PersistenceExceptionTranslationInterceptor
+4. TransactionInterceptor
+5. DefaultMethodInvokingMethodInterceptor
+6. QueryExecutorMethodInterceptor
+7. RepositoryFactorySupport$ImplementationMethodExecutionInterceptor

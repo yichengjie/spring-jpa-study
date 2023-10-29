@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
+import javax.persistence.EntityManager;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -17,6 +18,7 @@ class CityRepositoryTest {
     @Autowired
     private CityRepository cityRepository ;
 
+
     @Test
     void findAll() {
         List<City> list = cityRepository.findAll();
@@ -25,10 +27,12 @@ class CityRepositoryTest {
 
     @Test
     void findByNameAndStateAllIgnoringCase() {
+        org.springframework.data.repository.Repository repository;
         String name = "BJS" ;
         String status = "UP" ;
         City city = cityRepository.findByNameAndStateAllIgnoringCase(name, status);
         log.info("city : {}", city);
+        EntityManager entityManager ;
     }
 
     @Test
