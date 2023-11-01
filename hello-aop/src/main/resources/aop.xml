@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="helloService" class="com.yicj.study.aop.service.impl.HelloServiceImpl" />
+    <bean id="helloAspect" class="com.yicj.study.aop.aspect.HelloAspect" />
+
+    <aop:config proxy-target-class="true">
+        <aop:pointcut id="pointcut" expression="execution(* com.yicj.study.aop.service.HelloService.hello(..))"/>
+        <aop:aspect id="aspect" ref="helloAspect">
+            <aop:around pointcut-ref="pointcut" method="around"/>
+        </aop:aspect>
+    </aop:config>
+</beans>
