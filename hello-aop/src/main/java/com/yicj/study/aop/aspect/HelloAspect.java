@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 
 @Slf4j
 @Aspect
-@Component
 public class HelloAspect {
     @Pointcut("execution(String com.yicj.study.aop.service.HelloService.hello(String))")
     public void pointcut() {
