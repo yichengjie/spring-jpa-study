@@ -1,10 +1,12 @@
 package com.yicj.study.hello.reposotory.mapper;
 
+import com.yicj.study.hello.HelloWorldApplication;
 import com.yicj.study.hello.reposotory.entity.City;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -13,6 +15,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @Slf4j
 @DataJpaTest
+//
+//@SpringBootTest(classes = HelloWorldApplication.class)
 class CityRepositoryTest {
 
     @Autowired
@@ -27,7 +31,6 @@ class CityRepositoryTest {
 
     @Test
     void findByNameAndStateAllIgnoringCase() {
-        org.springframework.data.repository.Repository repository;
         String name = "BJS" ;
         String status = "UP" ;
         City city = cityRepository.findByNameAndStateAllIgnoringCase(name, status);

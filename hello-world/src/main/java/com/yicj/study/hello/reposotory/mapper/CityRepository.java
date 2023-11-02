@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
  * @date 2023/10/26 21:36
  */
 @Repository
-public interface CityRepository extends JpaRepository<City, Long>, QuerydslPredicateExecutor<City> {
+public interface CityRepository extends JpaRepository<City, Long>{
 
     //Page<City> findAll(Pageable pageable);
 
