@@ -13,7 +13,6 @@ public class HelloAspect {
     @Pointcut("execution(String com.yicj.study.aop.service.HelloService.hello(String))")
     public void pointcut() {
     }
-
     @Around("pointcut()")
     public Object around(ProceedingJoinPoint pj) throws Throwable{
         log.info("before ...");
@@ -21,5 +20,4 @@ public class HelloAspect {
         log.info("after ...");
         return result ;
     }
-
 }

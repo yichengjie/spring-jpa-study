@@ -5,10 +5,8 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/aop
        http://www.springframework.org/schema/aop/spring-aop.xsd">
-
     <bean id="helloService" class="com.yicj.study.aop.service.impl.HelloServiceImpl" />
     <bean id="helloAspect" class="com.yicj.study.aop.aspect.HelloAspect" />
-
     <aop:config proxy-target-class="true">
         <aop:pointcut id="pointcut" expression="execution(* com.yicj.study.aop.service.HelloService.hello(..))"/>
         <aop:aspect id="aspect" ref="helloAspect">

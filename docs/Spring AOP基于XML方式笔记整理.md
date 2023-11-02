@@ -1,5 +1,4 @@
 #### XML AOP 加载流程
-
 1. ClassPathXmlApplicationContext#refresh
 2. AbstractApplicationContext#obtainFreshBeanFactory
 3. AbstractRefreshableApplicationContext#refreshBeanFactory
@@ -17,9 +16,7 @@
 15. DefaultBeanDefinitionDocumentReader#parseBeanDefinitions(element, delegate)
 16. 解析默认标签：DefaultBeanDefinitionDocumentReader#parseDefaultElement 
 17. 解析非默认标签：BeanDefinitionParserDelegate#parseCustomElement(ele)
-
 #### 解析非默认标签
-
 1. 通过element获取namespaceUri
 2. 从readerContext中获取NamespaceHandler: DefaultNamespaceHandlerResolver
 3. DefaultNamespaceHandlerResolver#resolve(namespaceUri)
