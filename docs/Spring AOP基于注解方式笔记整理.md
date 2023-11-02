@@ -1,17 +1,30 @@
-#### @EnableAspectJAutoProxy注解
+1. @EnableAspectJAutoProxy引入AspectJAutoProxyRegistrar
 
-#### AnnotationConfigApplicationContext初始化
+2. AopConfigUtils.*registerAspectJAnnotationAutoProxyCreatorIfNecessary*(registry)
 
-1. 初始化AnnotatedBeanDefinitionReader(registry) 实例
-2. 初始化ClassPathBeanDefinitionScanner(registry) 实例
+3. 向容器中注入AnnotationAwareAspectJAutoProxyCreator后置处理器
 
-#### AnnotatedBeanDefinitionReader初始化
+4. AnnotationAwareAspectJAutoProxyCreator#initBeanFactory中初始化解析工具
 
-1. 初始化ConditionEvaluator实例
-2. AnnotationConfigUtils.*registerAnnotationConfigProcessors*(this.registry)
+   ```
+   this.advisorRetrievalHelper = new BeanFactoryAdvisorRetrievalHelperAdapter(beanFactory);
+   this.aspectJAdvisorFactory = new ReflectiveAspectJAdvisorFactory(beanFactory);
+   this.aspectJAdvisorsBuilder =
+   	new BeanFactoryAspectJAdvisorsBuilderAdapter(beanFactory, this.aspectJAdvisorFactory);
+   ```
 
-#### AnnotationConfigUtils.registerAnnotationConfigProcessors
+5. AbstractAutoProxyCreator#postProcessBeforeInstantiation
 
-1. 向容器中注入ConfigurationClassPostProcessor
-2. 向容器中注入AutowiredAnnotationBeanPostProcessor
-3. 向容器中注入CommonAnnotationBeanPostProcessor .. 等组件
+6. AbstractAutoProxyCreator#postProcessAfterInitialization
+
+#### AbstractAutoProxyCreator#postProcessAfterInitialization
+
+1. AbstractAutoProxyCreator#wrapIfNecessary
+2. AbstractAdvisorAutoProxyCreator#getAdvicesAndAdvisorsForBean
+3. AbstractAdvisorAutoProxyCreator#findEligibleAdvisors
+4. AnnotationAwareAspectJAutoProxyCreator#findCandidateAdvisors
+5. BeanFactoryAdvisorRetrievalHelper#findAdvisorBeans （查询不到数据）
+6. BeanFactoryAspectJAdvisorsBuilderAdapter#buildAspectJAdvisors
+7. BeanFactoryAspectJAdvisorsBuilder#buildAspectJAdvisors从Spring容器中获取Aspect构建Advisor
+8. 
+
